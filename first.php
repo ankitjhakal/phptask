@@ -1,0 +1,60 @@
+<?php
+session_start();
+if(isset($_GET['q'])){
+  $a=$_GET['q'];
+  header("location: $a.php");
+}
+ if(!isset($_SESSION['user1']))
+ {
+   header('location: seventask.php');
+ }
+ ?>
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+  <form action="firsttask.php" method="post" enctype="multipart/form-data">
+	<input type="text" id="fname" name="fname" placeholder="Enter your first name"><br><br>
+  <input type="text" id="lname" name="lname" placeholder="Enter your Last name"><br>
+	<input type="text" id="fullName" name="fullName" value="">
+  <br>
+  <input type="file" name="image" ><br>
+  <textarea name="comment"></textarea><br>
+  <i>+91
+  <input   type="text" name="pno" minlength="10" maxlength="10">
+  <br>
+  <textarea name="email"></textarea>
+  <br>
+  <input type="submit">
+  <br>
+  <a href="/logout.php">logout</a>
+
+
+  </form>
+  <br>
+<!-- javascript  -->
+<script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous">
+  </script>
+<script>
+
+$(document).ready(()=>{
+document.getElementById('lname').value="";
+});
+ $('input').keyup(function(){
+      document.getElementById('fullName').value=$('#fname').val()+" "+$('#lname').val();
+
+
+   });
+
+
+   </script>
+
+</body>
+
+</html>
